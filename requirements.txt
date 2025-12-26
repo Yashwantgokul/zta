@@ -1,6 +1,5 @@
-# Dev environment
-pip
-autopep8
-
-# App
 flask
+supabase
+python-dotenv
+gotrue
+pycryptodome

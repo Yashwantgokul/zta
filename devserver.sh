@@ -1,3 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+
+# Export variables from .env file
+if [ -f .env ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
 source .venv/bin/activate
-python -u -m flask --app main run -p $PORT --debug
+python main.py
