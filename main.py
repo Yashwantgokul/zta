@@ -1,4 +1,3 @@
-
 import os
 from flask import Flask, request, render_template, flash, redirect, url_for, session, jsonify
 from supabase import create_client, Client
@@ -107,6 +106,8 @@ def before_request_func():
 
 @app.route("/api/me")
 def get_current_user():
+    if 'user' not in session:
+        return jsonify({"error": "Unauthorized"}), 401
     return jsonify(session['user'])
 
 @app.route("/api/conversations")
